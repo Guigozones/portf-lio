@@ -1,0 +1,121 @@
+/* ===================================
+   RESUME SECTION
+   =================================== */
+.resume {
+    background: var(--background-card);
+}
+
+.resume-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Tabs */
+.resume-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 0.8rem 2rem;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--text-light);
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--gradient-primary);
+    border-color: transparent;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: var(--spacing-md);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--gradient-primary);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: var(--spacing-md);
+    padding-left: var(--spacing-md);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    transform: translateX(-7px);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.timeline-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-light);
+}
+
+.timeline-item .company {
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-item .date {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.timeline-item p {
+    color: var(--text-muted);
+}
+
+/* Responsive Resume */
+@media (max-width: 480px) {
+    .resume-tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

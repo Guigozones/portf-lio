@@ -1,0 +1,107 @@
+/* ===================================
+   VARIÁVEIS E RESET
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores Primárias */
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --accent-color: #00cec9;
+    
+    /* Cores de Fundo */
+    --dark-color: #2d3436;
+    --light-color: #dfe6e9;
+    --background-dark: #0a0a0f;
+    --background-card: #1a1a2e;
+    
+    /* Cores de Texto */
+    --text-light: #ffffff;
+    --text-muted: #b2bec3;
+    
+    /* Gradientes */
+    --gradient-primary: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    --gradient-accent: linear-gradient(135deg, #00cec9 0%, #81ecec 100%);
+    
+    /* Espaçamentos */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 5rem;
+    
+    /* Bordas */
+    --border-radius-sm: 10px;
+    --border-radius-md: 15px;
+    --border-radius-lg: 20px;
+    --border-radius-full: 50px;
+    
+    /* Sombras */
+    --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-primary: 0 5px 20px rgba(108, 92, 231, 0.4);
+    --shadow-accent: 0 5px 20px rgba(0, 206, 201, 0.3);
+    
+    /* Transições */
+    --transition-fast: 0.3s ease;
+    --transition-normal: 0.5s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===================================
+   UTILITÁRIOS
+   =================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: var(--spacing-sm) auto 0;
+}
+
+section {
+    padding: var(--spacing-xl) 5%;
+}

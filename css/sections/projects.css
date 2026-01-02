@@ -1,0 +1,21 @@
+/* ===================================
+   PROJECTS SECTION
+   =================================== */
+.projects {
+    background: var(--background-dark);
+}
+
+.projects-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+}
+
+/* Responsive Projects */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}

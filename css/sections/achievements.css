@@ -1,0 +1,14 @@
+/* ===================================
+   ACHIEVEMENTS SECTION
+   =================================== */
+.achievements {
+    background: linear-gradient(180deg, var(--background-dark) 0%, var(--background-card) 100%);
+}
+
+.achievements-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
