@@ -1,6 +1,6 @@
 /**
  * Contact Module
- * Gerencia o formulário de contato
+ * Gerencia o formulário de contato com Web3Forms
  */
 
 export function initContactForm() {
@@ -12,7 +12,7 @@ export function initContactForm() {
 }
 
 /**
- * Processa o envio do formulário
+ * Processa o envio do formulário via Web3Forms
  */
 async function handleFormSubmit(e) {
     e.preventDefault();
@@ -22,15 +22,14 @@ async function handleFormSubmit(e) {
     const originalBtnText = submitBtn.innerHTML;
 
     // Coleta os dados do formulário
-    const formData = {
-        name: form.querySelector('#name').value,
-        email: form.querySelector('#email').value,
-        subject: form.querySelector('#subject').value,
-        message: form.querySelector('#message').value
-    };
-
+    const formData = new FormData(form);
+    
     // Validação básica
-    if (!validateForm(formData)) {
+    const name = form.querySelector('#name').value;
+    const email = form.querySelector('#email').value;
+    const message = form.querySelector('#message').value;
+    
+    if (!validateForm({ name, email, message })) {
         showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
         return;
     }
@@ -40,11 +39,19 @@ async function handleFormSubmit(e) {
     submitBtn.disabled = true;
 
     try {
-        // Simula envio (substitua por sua API real)
-        await simulateSendEmail(formData);
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
         
-        showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
-        form.reset();
+        const result = await response.json();
+        
+        if (result.success) {
+            showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
+            form.reset();
+        } else {
+            throw new Error(result.message || 'Erro ao enviar');
+        }
     } catch (error) {
         showNotification('Erro ao enviar mensagem. Tente novamente.', 'error');
         console.error('Erro no formulário:', error);
@@ -73,16 +80,6 @@ function validateForm(data) {
     }
     
     return true;
-}
-
-/**
- * Simula o envio de email (substitua pela sua API)
- */
-function simulateSendEmail(data) {
-    return new Promise((resolve) => {
-        console.log('Dados do formulário:', data);
-        setTimeout(resolve, 1500);
-    });
 }
 
 /**

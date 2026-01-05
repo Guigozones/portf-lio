@@ -511,7 +511,13 @@
                 </div>
             </div>
 
-            <form class="contact-form" action="#" method="POST">
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="be3d025d-de20-4655-962d-179eafd5b76d">
+                <input type="hidden" name="subject" value="Nova mensagem do Portfólio">
+                <input type="hidden" name="from_name" value="Portfólio - Formulário de Contato">
+                <input type="checkbox" name="botcheck" style="display: none;">
+                
                 <div class="form-group">
                     <label for="name">Nome Completo</label>
                     <input type="text" id="name" name="name" placeholder="Seu nome" required>
