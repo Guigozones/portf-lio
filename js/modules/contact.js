@@ -3,13 +3,7 @@
  * Gerencia o formulário de contato com Web3Forms
  */
 
-export function initContactForm() {
-    const form = document.querySelector('.contact-form');
-
-    if (!form) return;
-
-    form.addEventListener('submit', handleFormSubmit);
-}
+// export function initContactForm() {}
 
 /**
  * Processa o envio do formulário via Web3Forms

@@ -8,14 +8,14 @@
 import { initNavbar } from './modules/navbar.js';
 import { initResumeTabs } from './modules/resume.js';
 import { initScrollEffects } from './modules/scroll.js';
-import { initContactForm } from './modules/contact.js';
+// import { initContactForm } from './modules/contact.js';
 
 // Inicializa todos os módulos quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     initResumeTabs();
     initScrollEffects();
-    initContactForm();
+    // initContactForm();
     
     console.log('Portfolio carregado com sucesso!');
 });
